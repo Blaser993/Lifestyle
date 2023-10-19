@@ -8,6 +8,8 @@ function searchCity() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+
+            displayCityInfo(data)
         })
         .catch(error => {
             console.error('Errore durante la chiamata delle API:', error);
@@ -21,9 +23,8 @@ function displayCityInfo(data) {
 
     // Visualizza le informazioni nell'area dedicata
     var resultContainer = document.getElementById('resultContainer');
-    resultContainer.innerHTML = `<p>Nome della città: ${summary}</p>
-                                <p>Paese: ${country}</p>`;
-                                console.log(summary)
+    resultContainer.innerHTML =  summary
+                                
 }
 
 
