@@ -19,7 +19,7 @@ function searchCity() {
         })
         .catch(error => {
             console.error('Errore durante la chiamata delle API:', error);
-            displayErrorMessage('Città non trovata. Inserisci un nome di città valido.');
+            displayErrorMessage('Città non trovata, prova in inglese. </br> Oppure inserisci un nome di città valido.');
         })
 }
 
