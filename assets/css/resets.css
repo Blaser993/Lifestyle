@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    display: inline-block;
+    width: 100%;
+}
+
+a, li, ol, ul, menu{
+    text-decoration: none;
+    color: currentColor;
+}
+
