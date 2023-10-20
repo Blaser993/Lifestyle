@@ -1,5 +1,3 @@
-
-
 function searchCity() {
     clear();
 
@@ -32,6 +30,7 @@ input.addEventListener("keypress", function(event) {
   }
 });
 
+// Pulisco lo schermo da eventuali messaggi di errori o ricerche passate
 function clear() {
     var resultContainer = document.getElementById('resultContainer');
     resultContainer.innerHTML = '';
@@ -39,16 +38,16 @@ function clear() {
     resultContainer.innerHTML = '';
 }
 
+//mostro messaggio di errore nell'imput
 function displayErrorMessage(message) {
-    // Visualizza il messaggio di errore nell'HTML
     let resultContainer = document.getElementById('resultError');
     resultContainer.innerHTML = `<p style="color: red;">${message}</p>`;
 }
 
+// cerca la città in base al value nell'impit
 function displayCityInfo(data) {
     // Recupera le informazioni desiderate dal risultato della chiamata API
     const summary = data.summary;
-
     // Visualizza le informazioni nell'area dedicata
     let resultContainer = document.getElementById('resultContainer');
     resultContainer.innerHTML =  summary                               
