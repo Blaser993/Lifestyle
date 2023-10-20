@@ -23,7 +23,7 @@ function searchCity() {
         })
 }
 
-// Permetto di avviare la ricerca anche premendo invio
+// Permetto di avviare la ricerca anche premendo invio!
 var input = document.getElementById("search");
 input.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
