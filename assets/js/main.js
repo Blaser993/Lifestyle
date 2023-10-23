@@ -1,4 +1,27 @@
 //cerco la città
+function searchFoto() {
+    clear();
+    let search = document.getElementById('search').value.trim().toLowerCase().replace(/\s+/g, '-');
+    console.log(search)
+    fetch(`https://api.teleport.org/api/urban_areas/slug:${search}/`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Città non trovata');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Errore durante la chiamata delle API:', error);
+            displayErrorMessage('Città non trovata, prova in inglese. </br> Oppure inserisci un nome di città valido.');
+        })
+}
+
+
+
+//cerco la città
 function searchCity() {
     clear();
     let search = document.getElementById('search').value.trim().toLowerCase().replace(/\s+/g, '-');
@@ -73,7 +96,7 @@ function displayCityScores(data) {
         // Imposto il contenuto delle card
         article.innerHTML = `
         <div class="card-body m-1">
-            <p>${score.name}:<span> ${percentuale} di 10</span></p> 
+            <p>${score.name}:<span> ${percentuale} di 100</span></p> 
             <div class="bg-info-subtle" style="width: 100%;">
                 <div class="bg-info" style="width: ${percentuale}%; height: 20px;">
                 
