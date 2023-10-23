@@ -1,9 +1,9 @@
-//cerco la città
+//cerco la foto città
 function searchFoto() {
     clear();
     let search = document.getElementById('search').value.trim().toLowerCase().replace(/\s+/g, '-');
     console.log(search)
-    fetch(`https://api.teleport.org/api/urban_areas/slug:${search}/`)
+    fetch(`https://api.teleport.org/api/urban_areas/slug:${search}/images/`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Città non trovata');
@@ -11,12 +11,28 @@ function searchFoto() {
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            console.log("ecco la tua foto:",data.photos[0].image.mobile);
+            var element = document.getElementById('background');
+            let background = data.photos[0].image.web;
+            element.style.backgroundImage = `url("${background}")`;
         })
         .catch(error => {
             console.error('Errore durante la chiamata delle API:', error);
             displayErrorMessage('Città non trovata, prova in inglese. </br> Oppure inserisci un nome di città valido.');
         })
+}
+
+function changeBackground() {
+    var element = document.getElementById('background');
+    var currentBackground = element.style.backgroundImage;
+
+
+    // Cambia l'immagine di sfondo a seconda di quella corrente
+    if (currentBackground === 'url(\'immagine1.jpg\')') {
+        element.style.backgroundImage = 'url(\'immagine2.jpg\')';
+    } else {
+        element.style.backgroundImage = 'url(\'immagine1.jpg\')';
+    }
 }
 
 
@@ -61,6 +77,9 @@ function clear() {
     resultScores.innerHTML = '';
     var resultError = document.getElementById('resultError');
     resultError.innerHTML = '';
+    var background = document.getElementById('background');
+    background = "";
+
 }
 
 //mostro messaggio di errore nell'imput
