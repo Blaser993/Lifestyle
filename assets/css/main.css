@@ -1,5 +1,16 @@
 body{
- min-height: 100vh;
+ height: 100vh;
+ 
+}
+
+.row{
+    margin-left:0;
+    margin-right: 0;
+}
+
+.nav > .col{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #background {
@@ -7,4 +18,24 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     height: 100%;
+}
+
+::-webkit-scrollbar-track
+{
+	border: none;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color:transparent;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 100px;
+	background-color: #000000;	
 }

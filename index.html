@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LifeStyle</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/resets.css">
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LifeStyle</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-</head>
-<body id="background">
-    <div class="container">
-    
+        <link rel="stylesheet" href="./assets/css/resets.css">
+        <link rel="stylesheet" href="./assets/css/main.css">
 
-            <div class="card-body ">
-                <div class="input-group m-3">
-                    <span class="input-group-text">Inserisci il nome della città:</span>
-                    <input type="text" class="form-control" id="search">   
-                    <button id="myBtn" type="button" class="btn btn-outline-primary" onclick="searchCity(), searchFoto()">Cerca</button>
-                </div>
-                <span id="resultError"></span>
+    </head>
+    <body>
+        <main id="background">
+            <div  class="container">  
+                <div class="row">
+                    <nav class="col col-12">
+                        <div class="input-group my-3">
+                            <span class="input-group-text">Inserisci il nome della città:</span>
+                            <input type="text" class="form-control" id="search">   
+                            <button id="myBtn" type="button" class="btn btn-dark me-3" onclick="searchInfo(), searchStats(), searchFoto()">Cerca</button>
+                        </div>       
+                        <div class=" m-3">
+                            <span id="resultError"></span>
+                        </div>
+                    </nav>
+                </div> 
 
+
+                <section class="row col col-12 " style="height: 75vh;">
+                    <div class="row col col-6  ">
+                        <div id="resultInfo">
+                            
+                        </div>
+                        <div class="overflow-y-auto" style="max-height: 200px;" id="resultDescription"></div>
+                    </div>
+                    <div class="row col col-6 overflow-y-auto" style="height: 100%;">
+                        <div class="col col-12" id="resultScores"></div>
+                    </div>  
+                </section>
+      
             </div>
- 
-
-
-        <div  class="row">
-            <div id="resultDescription"></div>
-        </div>
-
-        <div class="row" id="resultScores"></div>
-
-    
-
-        
-    </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="./assets/js/main.js"></script>
-
-
-</body>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="./assets/js/main.js"></script>
+    </body>
 
 
 </html>
