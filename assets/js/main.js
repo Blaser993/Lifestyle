@@ -1,40 +1,29 @@
-//cerco la foto città
+//cerco la foto città e la cambio
 function searchFoto() {
     clear();
+    let element = document.getElementById('background'); 
     let search = document.getElementById('search').value.trim().toLowerCase().replace(/\s+/g, '-');
     console.log(search)
     fetch(`https://api.teleport.org/api/urban_areas/slug:${search}/images/`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Città non trovata');
+                
             }
             return response.json();
         })
         .then(data => {
-            console.log("ecco la tua foto:",data.photos[0].image.mobile);
-            var element = document.getElementById('background');
+            console.log("ecco la tua foto:",data.photos[0].image.mobile);           
             let background = data.photos[0].image.web;
             element.style.backgroundImage = `url("${background}")`;
         })
         .catch(error => {
             console.error('Errore durante la chiamata delle API:', error);
-            displayErrorMessage('Città non trovata, prova in inglese. </br> Oppure inserisci un nome di città valido.');
+            let element = document.getElementById('background'); 
+            let background = "";
+            element.style.backgroundImage = `url("${background}")`;
         })
 }
-
-function changeBackground() {
-    var element = document.getElementById('background');
-    var currentBackground = element.style.backgroundImage;
-
-
-    // Cambia l'immagine di sfondo a seconda di quella corrente
-    if (currentBackground === 'url(\'immagine1.jpg\')') {
-        element.style.backgroundImage = 'url(\'immagine2.jpg\')';
-    } else {
-        element.style.backgroundImage = 'url(\'immagine1.jpg\')';
-    }
-}
-
 
 
 //cerco la città
@@ -56,7 +45,7 @@ function searchCity() {
         })
         .catch(error => {
             console.error('Errore durante la chiamata delle API:', error);
-            displayErrorMessage('Città non trovata, prova in inglese. </br> Oppure inserisci un nome di città valido.');
+            displayErrorMessage('Città non trovata, prova in inglese, oppure inserisci un nome di città valido.');
         })
 }
 
@@ -71,15 +60,12 @@ input.addEventListener("keypress", function(event) {
 
 // Pulisco lo schermo da eventuali messaggi di errori o ricerche passate
 function clear() {
-    var resultDescription = document.getElementById('resultDescription');
+    let resultDescription = document.getElementById('resultDescription');
     resultDescription.innerHTML = '';
-    var resultScores = document.getElementById('resultScores');
+    let resultScores = document.getElementById('resultScores');
     resultScores.innerHTML = '';
-    var resultError = document.getElementById('resultError');
+    let resultError = document.getElementById('resultError');
     resultError.innerHTML = '';
-    var background = document.getElementById('background');
-    background = "";
-
 }
 
 //mostro messaggio di errore nell'imput
