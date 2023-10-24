@@ -17,7 +17,8 @@
                     <nav class="col col-12">
                         <div class="input-group my-3">
                             <span class="input-group-text">Inserisci il nome della città:</span>
-                            <input type="text" class="form-control" id="search">   
+                            <input type="text" class="form-control" id="search" placeholder="Cerca..." list="suggestionsList">
+                            <datalist id="suggestionsList"></datalist> 
                             <button id="myBtn" type="button" class="btn btn-dark me-3" onclick="searchInfo(), searchStats(), searchFoto()">Cerca</button>
                         </div>       
                         <div class=" m-3">

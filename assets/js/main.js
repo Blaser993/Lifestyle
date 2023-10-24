@@ -167,8 +167,50 @@ function displayErrorMessage(message) {
     resultError.innerHTML = `<p style="color: red;">${message}</p>`;
 }
 
+// CREO UNA FUNZIONALITà CHE AIUTI L'UTENTE NELLA RICERCA
 
+// prendo il file json
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('./assets/js/cities.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Errore nel caricamento del file JSON');
+        }
+        return response.json();
+      })
+      .then(data => {
+        initializeAutocomplete(data);
+      })
+      .catch(error => console.error(error));
+  });
 
+  function initializeAutocomplete(data) {
+    const search = document.getElementById('search');
+    const suggestionsList = document.getElementById('suggestionsList');
 
+    search.addEventListener('input', function () {
+      showSuggestions(this.value, data, suggestionsList);
+    });
+  }
 
+  function showSuggestions(input, data, suggestionsList) {
+    // Converto i valori dell'oggetto in un array
+    const valuesArray = Object.values(data);
 
+    // Filtro l'array di valori
+    const filteredNames = valuesArray.filter(value =>
+      value.toLowerCase().includes(input.toLowerCase())
+    );
+
+    // Pulisco la lista di suggerimenti
+    suggestionsList.innerHTML = '';
+
+    // Aggiungo gli elementi alla lista di suggerimenti
+    filteredNames.forEach(name => {
+      const option = document.createElement('option');
+      option.value = name;
+      suggestionsList.appendChild(option);
+    });
+
+    // Puoi implementare ulteriori azioni qui, ad esempio gestire il clic sugli elementi della lista.
+  }
