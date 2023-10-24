@@ -50,9 +50,12 @@ function searchInfo() {
 // mostra info a schermo
 // mostra descrizione a schermo
 function displayCityInfo(data) {
-    // Recupera le informazioni desiderate dal risultato della chiamata API
+    // Recupera le informazioni desiderate dal risultato della chiamata API opportunemente modificate
     let name = data.name;
-    let fullname = data.full_name;
+    let datafullname = data.full_name;
+    let continent = data.continent;
+    let fullname = datafullname.replace(/^[^,]*,\s*/, '');
+    const location = fullname +", " + continent
     // Visualizza le informazioni nell'area dedicata
     const resultInfo = document.getElementById('resultInfo');
     const nameField = document.createElement("h1")
@@ -60,7 +63,7 @@ function displayCityInfo(data) {
     nameField.classList.add("text-white","display-1")
     resultInfo.appendChild(nameField)
     const fullnameField = document.createElement("h1")
-    fullnameField.innerHTML = `${fullname}`
+    fullnameField.innerHTML = `${location}`
     fullnameField.classList.add("text-white")
     resultInfo.appendChild(fullnameField)
 
@@ -193,24 +196,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // FUNZIONE PER VEDERE I LE CITTà PRESENTI NEL FILE JSON
   function showSuggestions(input, data, suggestionsList) {
     // Converto i valori dell'oggetto in un array
     const valuesArray = Object.values(data);
-
+  
     // Filtro l'array di valori
     const filteredNames = valuesArray.filter(value =>
       value.toLowerCase().includes(input.toLowerCase())
     );
-
+  
     // Pulisco la lista di suggerimenti
     suggestionsList.innerHTML = '';
-
+  
     // Aggiungo gli elementi alla lista di suggerimenti
     filteredNames.forEach(name => {
       const option = document.createElement('option');
       option.value = name;
       suggestionsList.appendChild(option);
     });
-
-    // Puoi implementare ulteriori azioni qui, ad esempio gestire il clic sugli elementi della lista.
+  
   }
