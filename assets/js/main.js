@@ -126,8 +126,8 @@ function displayCityScores(data) {
         article.innerHTML = `
         <div class=" bg-light rounded p-2 bg-opacity-50 m-1">
             <h5><strong>${score.name}</strong>:<span> ${punteggio} di 10</span></h5> 
-            <div class="bg-dark-subtle" style="width: 100%;">
-                <div class="bg-dark" style="width: ${percentuale}%; height: 20px;">            
+            <div class="bg-dark-subtle rounded-pill" style="width: 100%;">
+                <div class="bg-dark rounded-pill" style="width: ${percentuale}%; height: 10px;">            
                 </div>
             </div>
         </div>
