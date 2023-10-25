@@ -19,7 +19,7 @@
                             <span class="input-group-text">Inserisci il nome della città:</span>
                             <input type="text" class="form-control" id="search" placeholder="Cerca..." list="suggestionsList">
                             <datalist id="suggestionsList"></datalist> 
-                            <button id="myBtn" type="button" class="btn btn-dark me-3" onclick="searchInfo(), searchStats(), searchFoto()">Cerca</button>
+                            <button id="myBtn" type="button" class="btn btn-dark" onclick="searchInfo(), searchStats(), searchFoto()">Cerca</button>
                         </div>       
                         <div class=" m-3">
                             <span id="resultError"></span>
@@ -27,6 +27,24 @@
                     </nav>
                 </div> 
 
+                <div id="infoCard" class="col-12 p-3">
+
+                    <div class="card">
+                        <div class="row g-0">
+                          <div class="col-12">
+                            <div class="card-body">
+                              <h2 class="card-title text-center">LifeStyle Cities</h2>
+                                <h5>Cos'è e come funziona?</h5>
+                                <ul>
+                                    <li>LifeStyle Cities è un'app che permette di ottenere informazioni riguardo la qualità delle città attraverso l'utilizzo delle <a href="https://developers.teleport.org/api/" target="_blank">API Teleport</a>.</li>
+                                    <li>Il servizio offerto da Teleport è completamente in lingua inglese e limitato alle città più importanti.</li>
+                                    <li>Inserisci il nome di una città nella barra di ricerca in alto per scoprire il punteggio di quella città ed altre informazioni pertinenti</li>
+                                </ul>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
 
                 <section class="row col col-12 " style="height: 75vh;">
                     <div class="row col col-6  ">

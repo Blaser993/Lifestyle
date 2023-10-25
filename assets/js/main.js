@@ -1,3 +1,4 @@
+
 //cerco la foto città e la cambio
 function searchFoto() {
     clear();
@@ -13,6 +14,8 @@ function searchFoto() {
             return response.json();
         })
         .then(data => {
+            let infocard = document.getElementById("infoCard");
+            infocard.classList.add("visually-hidden");
             console.log("ecco la tua foto:",data.photos[0].image.mobile);           
             let background = data.photos[0].image.web;
             element.style.backgroundImage = `url("${background}")`;
@@ -22,6 +25,8 @@ function searchFoto() {
             let element = document.getElementById('background'); 
             let background = "";
             element.style.backgroundImage = `url("${background}")`;
+            let infocard = document.getElementById("infoCard");
+            infocard.classList.remove("visually-hidden");
         })
 }
 
@@ -68,8 +73,6 @@ function displayCityInfo(data) {
     resultInfo.appendChild(fullnameField)
 
 }
-
-
 
 //cerco le stats con description
 function searchStats() {
