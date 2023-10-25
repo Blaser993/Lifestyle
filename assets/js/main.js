@@ -138,10 +138,8 @@ function displayCityScores(data) {
             </div>
         </div>
     `;
-
         // Aggiungi il nuovo elemento di paragrafo a resultScores
         resultScores.appendChild(article);
-
         console.log("ecco i risultati:", score.name);
     });
 }
@@ -218,5 +216,4 @@ document.addEventListener('DOMContentLoaded', function () {
       option.value = name;
       suggestionsList.appendChild(option);
     });
-  
   }
